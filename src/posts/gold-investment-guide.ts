@@ -1,12 +1,12 @@
 type Post = {
   slug: string;
   title: string;
-  content: String.raw`
+  content: string;
 };
 export const goldInvestmentGuide: Post = {
   slug: "how-to-invest-in-gold-guide",
   title: "금 투자 방법 5가지 완벽 정리: 초보자를 위한 안전자산 재테크",
-  content: `
+  content: String.raw`
 <div style="font-family: 'Noto Sans KR', sans-serif; line-height: 1.8; max-width: 800px; margin: 0 auto; font-size: 16px; color: #333; word-break: keep-all;">
     <h1 style="font-size: 28px; color: #b8860b; border-bottom: 3px solid #b8860b; padding-bottom: 10px; margin-bottom: 25px;">금 투자 방법, 안전자산의 대명사 '골드'로 자산 지키는 법</h1>
 
