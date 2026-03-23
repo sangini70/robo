@@ -8,8 +8,8 @@ export function About() {
         <title>사이트 소개 - robo-advisor.kr</title>
         <meta name="description" content="로보어드바이저 투자 가이드 사이트 소개입니다." />
       </Helmet>
-      <h1 className="text-4xl font-medium tracking-tighter text-white mb-10">사이트 소개</h1>
-      <div className="prose prose-lg prose-invert prose-neutral font-light">
+      <h1 className="text-4xl font-medium tracking-tighter text-gray-900 mb-10">사이트 소개</h1>
+      <div className="prose prose-lg prose-gray font-light">
         <p>
           <strong>robo-advisor.kr</strong>은 로보어드바이저를 활용한 스마트한 자산관리 방법을 공유하는 공간입니다.
         </p>

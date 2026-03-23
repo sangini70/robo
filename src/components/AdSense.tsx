@@ -10,7 +10,7 @@ export function AdSense({ slotId = 'default-slot', className = '', format = 'aut
   // In a real app, this would load the Google AdSense script and push the ad.
   // For this MVP, we use a placeholder to visualize the ad space.
   return (
-    <div className={`w-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-600 text-xs tracking-widest uppercase p-4 my-12 rounded-sm ${className}`} style={{ minHeight: '100px' }}>
+    <div className={`w-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400 text-xs tracking-widest uppercase p-4 my-12 rounded-sm ${className}`} style={{ minHeight: '100px' }}>
       [AdSense Placeholder: {slotId} - {format}]
     </div>
   );

@@ -8,8 +8,8 @@ export function Privacy() {
         <title>개인정보처리방침 - robo-advisor.kr</title>
         <meta name="description" content="robo-advisor.kr 개인정보처리방침" />
       </Helmet>
-      <h1 className="text-4xl font-medium tracking-tighter text-white mb-10">개인정보처리방침</h1>
-      <div className="prose prose-lg prose-invert prose-neutral font-light">
+      <h1 className="text-4xl font-medium tracking-tighter text-gray-900 mb-10">개인정보처리방침</h1>
+      <div className="prose prose-lg prose-gray font-light">
         <p>
           <strong>robo-advisor.kr</strong>(이하 '본 사이트')은(는) 이용자의 개인정보를 중요시하며, 정보통신망 이용촉진 및 정보보호에 관한 법률 등 관련 법령을 준수하고 있습니다.
         </p>
