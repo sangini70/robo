@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { posts } from "./index";
+import { posts } from "../posts";
 
 export default function PostPage() {
   const { slug } = useParams();
