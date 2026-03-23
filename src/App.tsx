@@ -13,6 +13,7 @@ import { About } from './pages/About';
 import { Privacy } from './pages/Privacy';
 import { Contact } from './pages/Contact';
 import AdBlock from "./components/AdBlock";
+import PostPage from "./pages/PostPage";
 export default function App() {
   return (
     <HelmetProvider>
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="about" element={<About />} />
             <Route path="privacy" element={<Privacy />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="/post/robo-advisor" element={<PostPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
