@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Hero } from '../components/Hero';
 import { PostCard } from '../components/PostCard';
-import { posts } from '../data/posts';
+import { posts } from '../posts';
 import AdBlock from "../components/AdBlock";
 export function Home() {
   return (
