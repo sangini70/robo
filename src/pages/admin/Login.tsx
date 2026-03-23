@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import { auth, db } from '../../firebase';
-import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export function AdminLogin() {
@@ -23,32 +20,17 @@ export function AdminLogin() {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-900">Loading...</div>;
   }
 
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      setError('');
-      await signInWithPopup(auth, provider);
-    } catch (err: any) {
-      console.error("Login failed", err);
-      setError(err.message || 'Google 로그인에 실패했습니다.');
-    }
-  };
+
 
   const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setCheckingPassword(true);
     setError('');
     try {
-      const docRef = doc(db, 'settings', 'security');
-      const docSnap = await getDoc(docRef);
-      
-      let correctPassword = 'admin'; // Default fallback
-      if (docSnap.exists() && docSnap.data().adminPassword) {
-        correctPassword = docSnap.data().adminPassword;
-      } else {
-        // Initialize if not exists
-        await setDoc(docRef, { adminPassword: 'admin' }, { merge: true });
-      }
+
+
+
+      let correctPassword = 'admin';
 
       if (password === correctPassword) {
         sessionStorage.setItem('admin_unlocked', 'true');
@@ -64,15 +46,15 @@ export function AdminLogin() {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
+
+   const handleLogout = () => {
     sessionStorage.removeItem('admin_unlocked');
     setUnlocked(false);
     setPassword('');
     setError('');
   };
 
-  return (
+return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-900 font-sans">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-sm border border-gray-200 text-center">
         <h1 className="text-2xl font-medium tracking-tight text-gray-900 mb-6">Admin Login</h1>
@@ -83,31 +65,9 @@ export function AdminLogin() {
           </div>
         )}
 
-        {!user ? (
-          <>
-            <p className="text-sm text-gray-500 font-light mb-8">
-              관리자 계정(Google)으로 로그인해 주세요.
-            </p>
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors"
-            >
-              Sign in with Google
-            </button>
-          </>
-        ) : !isAdmin ? (
-          <>
-            <p className="text-sm text-red-600 font-medium mb-8">
-              접근 권한이 없습니다. 등록된 관리자 이메일이 아닙니다.
-            </p>
-            <button
-              onClick={handleLogout}
-              className="w-full inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors"
-            >
-              다른 계정으로 로그인
-            </button>
-          </>
-        ) : (
+       
+    
+     
           <form onSubmit={handlePasswordSubmit}>
             <p className="text-sm text-gray-500 font-light mb-6">
               보안을 위해 관리자 비밀번호를 한 번 더 입력해 주세요.
