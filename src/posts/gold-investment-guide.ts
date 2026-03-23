@@ -1,4 +1,9 @@
-export const goldInvestmentGuide = {
+type Post = {
+  slug: string;
+  title: string;
+  content: String.raw`
+};
+export const goldInvestmentGuide: Post = {
   slug: "how-to-invest-in-gold-guide",
   title: "금 투자 방법 5가지 완벽 정리: 초보자를 위한 안전자산 재테크",
   content: `
