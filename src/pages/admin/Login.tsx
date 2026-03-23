@@ -4,17 +4,19 @@ import { useAuth } from '../../contexts/AuthContext';
 
 export function AdminLogin() {
   const navigate = useNavigate();
-  const { user, isAdmin, loading } = useAuth();
+  const { loading } = useAuth();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [checkingPassword, setCheckingPassword] = useState(false);
   const [unlocked, setUnlocked] = useState(sessionStorage.getItem('admin_unlocked') === 'true');
 
-  useEffect(() => {
-    if (unlocked && isAdmin) {
-      navigate('/admin/posts', { replace: true });
-    }
-  }, [unlocked, isAdmin, navigate]);
+ useEffect(() => {
+  if (unlocked) {
+    navigate('/admin/posts', { replace: true });
+  }
+}, [unlocked, navigate]);
+    
+
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-900">Loading...</div>;
@@ -30,7 +32,7 @@ export function AdminLogin() {
 
 
 
-      let correctPassword = 'admin';
+      let correctPassword = 'admin'; 
 
       if (password === correctPassword) {
         sessionStorage.setItem('admin_unlocked', 'true');
